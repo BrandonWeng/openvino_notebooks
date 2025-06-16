@@ -1,0 +1,38 @@
+[project]
+name = "openvino-env"
+version = "0.1.0"
+description = "Run 'uv sync' to update the kernel. You may need to run 'uv add --dev ipykernel ipywidgets"
+readme = "README.md"
+requires-python = "~=3.12"
+dependencies = [
+    "huggingface-hub>=0.29.3",
+    "jiwer>=3.1.0",
+    "librosa>=0.11.0",
+    "matplotlib>=3.5.0",
+    "numpy>=1.21.0",
+    "openvino==2025.2.0rc2",
+    "openvino-genai==2025.2.0rc2",
+    "openvino-tokenizers==2025.2.0rc2",
+    "optimum-intel[openvino] @ git+https://github.com/huggingface/optimum-intel.git",
+    "psutil>=7.0.0",
+    "py-cpuinfo>=9.0.0",
+    "pyinstaller>=6.12.0",
+    "soundfile>=0.13.1",
+    "transformers>=4.51",
+    "WMI>=1.5.1; sys_platform == 'win32'",
+    "ipykernel>=6.0.0",
+    "pip>=23.0.0",
+]
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
+
+[[tool.uv.index]]
+name = "openvino-nightly"
+url = "https://storage.openvinotoolkit.org/simple/wheels/nightly"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "ipywidgets>=8.1.7",
+]
